@@ -30,9 +30,9 @@ app.use(function(req,res,next){
 });
 
 
-app.use(function(req,res,next){
-  res.render("maintenance");
-});
+// app.use(function(req,res,next){
+//   res.render("maintenance");
+// });
 
 app.use(express.static(__dirname+'/public'));
 
@@ -46,6 +46,11 @@ app.get("/about",function(req,res){
   res.render("about",{pagetitle: "about page",
                       pagebody: "xyz"});
 });
+
+app.get('/projects',function(req,res){
+  res.render('projects.hbs',{pagetitle: 'projects'});
+});
+
 app.listen(port,function(){
   console.log(`server is running on port ${port}`);
 });
