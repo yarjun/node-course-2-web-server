@@ -3,6 +3,8 @@ var app = express();
 var hbs = require("hbs");
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
+
 hbs.registerPartials(__dirname+'/views/partials');
 
 hbs.registerHelper('getcurrentyear',function(){
@@ -44,4 +46,6 @@ app.get("/about",function(req,res){
   res.render("about",{pagetitle: "about page",
                       pagebody: "xyz"});
 });
-app.listen(3000);
+app.listen(port,function(){
+  console.log(`server is running on port ${port}`);
+});
